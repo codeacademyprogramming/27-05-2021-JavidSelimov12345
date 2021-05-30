@@ -21,6 +21,31 @@ export function getCoffee(dispatch) {
 }
 
 
+export function addCoffee(dispatch) {
+	return function (data) {
+		dispatch({ type: COFFEE_ACTIONS.ADD_COFFEE });
+
+		coffeeService
+			.addCoffee(data)
+			.then((resp) => {
+				// console.log(resp);
+				dispatch({
+					type: `${COFFEE_ACTIONS.ADD_COFFEE}_SUCCESS`,
+
+					payload: data,
+				});
+			})
+			.catch((err) =>
+				dispatch({
+					type: `${COFFEE_ACTIONS.ADD_COFFEE}_ERROR`,
+
+					error: err,
+				})
+			);
+	};
+}
+
+
 
 
 

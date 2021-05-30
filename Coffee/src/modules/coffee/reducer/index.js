@@ -38,20 +38,20 @@ export function cofeeReducer(state = initialState, action) {
 				error: action.error,
 			};
 
-			case `${COFFEE_ACTIONS.UPDATE_COFFEE}`:
+			case `${COFFEE_ACTIONS.ADD_COFFEE}`:
 				return {
 					...state,
 					status: ASYNC_STATUS.LOADING,
 					error: null,
 				};
-			case `${COFFEE_ACTIONS.UPDATE_COFFEE}_SUCCESS`:
+			case `${COFFEE_ACTIONS.ADD_COFFEE}_SUCCESS`:
 				return {
 					...state,
 					status: ASYNC_STATUS.SUCCESS,
-					data:action.payload,
+					data:[...state.data,action.payload],
 					error: null,
 				};
-			case `${COFFEE_ACTIONS.UPDATE_COFFEE}_ERROR`:
+			case `${COFFEE_ACTIONS.ADD_COFFEE}_ERROR`:
 				return {
 					...state,
 					status: ASYNC_STATUS.ERROR,

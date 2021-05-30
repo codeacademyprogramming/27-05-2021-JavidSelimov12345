@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 import { HttpClient } from '../httpClient';
 
 class CoffeeService extends HttpClient {
@@ -9,6 +9,10 @@ class CoffeeService extends HttpClient {
 	}
 	getCoffee() {
 		return this.get('dat.json');
+	}
+
+	addCoffee(data) {
+		return this.post('https://jsonplaceholder.typicode.com/posts', data);
 	}
 
 	// getStudentAttendenceById(id, dates) {
