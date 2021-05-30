@@ -1,4 +1,4 @@
-import { Table, TableBody, TableCell, TableContainer, TableHead, Paper, TableRow } from '@material-ui/core';
+import { Table, TableBody, TableCell, TableContainer, TableHead, Paper, TableRow, Button } from '@material-ui/core';
 import React, { useState } from 'react';
 
 
@@ -63,7 +63,10 @@ function CoffeeTable({ data }) {
 							<TableCell align="right">{coffee.price}$</TableCell>
 							<TableCell align="right">{coffee.count}</TableCell>
 							<TableCell align="right">{coffee.note}</TableCell>
-							<TableCell align="right">{coffee.status}</TableCell>
+							<TableCell align="right">{coffee.status}{(coffee.status!=='Done')&&<Button style={{marginLeft:'0.8rem'}} variant="contained"
+                            
+                            >Update</Button>}  </TableCell>
+
 						</TableRow>
 					))}
 				</TableBody>
