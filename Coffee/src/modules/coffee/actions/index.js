@@ -46,6 +46,31 @@ export function addCoffee(dispatch) {
 }
 
 
+export function updateCoffee(dispatch) {
+	return function (data) {
+		dispatch({ type: COFFEE_ACTIONS.UPDATE_COFFEE });
+
+		coffeeService
+			.addCoffee(data)
+			.then((resp) => {
+				console.log(resp);
+				dispatch({
+					type: `${COFFEE_ACTIONS.UPDATE_UPDATE_COFFEE}_SUCCESS`,
+
+					payload: data,
+				});
+			})
+			.catch((err) =>
+				dispatch({
+					type: `${COFFEE_ACTIONS.UPDATE_UPDATE_COFFEE}_ERROR`,
+
+					error: err,
+				})
+			);
+	};
+}
+
+
 
 
 

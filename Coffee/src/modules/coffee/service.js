@@ -15,23 +15,11 @@ class CoffeeService extends HttpClient {
 		return this.post('https://jsonplaceholder.typicode.com/posts', data);
 	}
 
-	// getStudentAttendenceById(id, dates) {
-	// 	return dates.map(({ date, list }) => {
-	// 		const studentAttendence = list.find((attendence) => attendence.studentId === id);
-	// 		return {
-	// 			date,
-	// 			attended: studentAttendence ? studentAttendence.attended : false,
-	// 		};
-	// 	});
-	// }
+	updateCoffee(data) {
+		return this.post('https://jsonplaceholder.typicode.com/posts', data);
+	}
 
-	// addAttendence(data) {
-	// 	return this.post('https://jsonplaceholder.typicode.com/posts', data);
-	// }
 
-	// updateAttendence(data) {
-	// 	return this.post('https://jsonplaceholder.typicode.com/posts', data);
-	// }
 }
 
 export const coffeeService = new CoffeeService();
